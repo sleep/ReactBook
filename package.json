@@ -1,0 +1,38 @@
+{
+  "name": "reactbook",
+  "version": "0.0.0",
+  "description": "dynamic multi-page documents",
+  "main": "build/bundle.js",
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "html-loader": "^0.3.0",
+    "http-server": "^0.8.0",
+    "remarkable-loader": "^0.1.0",
+    "webpack": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "start": "webpack -w -d",
+    "examples": "http-server ./examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sleep/reactbook.git"
+  },
+  "keywords": [
+    "react",
+    "literate",
+    "jsx"
+  ],
+  "author": "Sean Lee <freshdried@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sleep/reactbook/issues"
+  },
+  "homepage": "https://github.com/sleep/reactbook"
+}
