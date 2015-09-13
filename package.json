@@ -1,35 +1,65 @@
 {
   "name": "reactbook",
+  "private": true,
   "version": "0.0.0",
-  "description": "dynamic multi-page documents",
-  "main": "build/bundle.js",
+  "description": "example dynamic documents with React",
+  "main": "server.js",
   "dependencies": {
-    "react": "^0.13.3"
+    "history": "^1.9.0",
+    "react": "^0.13.3",
+    "react-router": "^1.0.0-rc1"
   },
   "devDependencies": {
     "babel-core": "^5.8.22",
     "babel-loader": "^5.3.2",
+    "css-loader": "^0.14.5",
+    "file-loader": "^0.8.4",
     "html-loader": "^0.3.0",
-    "http-server": "^0.8.0",
+    "react-hot-loader": "^1.2.8",
     "remarkable-loader": "^0.1.0",
-    "webpack": "^1.11.0"
+    "sass-loader": "^1.0.4",
+    "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1",
+    "node-sass": "^3.2.0",
+    "json-loader": "^0.5.2",
+    "babel-eslint": "^4.1.1",
+    "babel-plugin-react-transform": "^1.0.3",
+    "eslint": "^1.4.0",
+    "eslint-plugin-react": "^3.3.2",
+    "express": "^4.13.3",
+    "react-transform-catch-errors": "^0.1.1",
+    "react-transform-webpack-hmr": "^0.1.4",
+    "redbox-react": "^1.0.3",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
-    "start": "webpack -w -d",
-    "examples": "http-server ./examples"
+    "start": "node server.js",
+    "lint": "eslint src",
+    "build": "NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sleep/reactbook.git"
+    "url": "https://github.com/sleep/reactbook"
   },
   "keywords": [
+    "webpack",
+    "palette",
     "react",
-    "literate",
-    "jsx"
+    "hot",
+    "reactjs",
+    "reload",
+    "live",
+    "hmr",
+    "boilerplate",
+    "starter",
+    "template",
+    "seed"
   ],
-  "author": "Sean Lee <freshdried@gmail.com>",
+  "author": "Sean Lee <freshdried@gmail.com> (http://slee.xyz/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sleep/reactbook/issues"
