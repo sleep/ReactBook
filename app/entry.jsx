@@ -5,19 +5,18 @@ import {Router, Route, Link} from "react-router";
 import createHistory from "history/lib/createHashHistory";
 
 
-import App from "./App.jsx";
-import Landing from "./Landing.jsx";
+import Book from "./lib/Book.js";
+import entries from "dir!./entries.config.js";
+import components from "dir!./components.config.js";
 
-let routes = {
-    path: "/",
-    component: App,
-    indexRoute: {component: Landing},
-    childRoutes: [
-    ]
-}
+let book = new Book(entries, components);
+let routes = [
+    book.getRoutes()
+];
+console.log(routes);
 
 
 React.render((
     <Router history={createHistory({queryKey: false})}
-            children={routes}/>
+            routes={routes}/>
 ), document.getElementById("app"));
