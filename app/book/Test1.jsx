@@ -19,7 +19,7 @@ export default React.createClass({
     },
     render() {
         return (
-            <div>{counter}</div>
+            <div>{this.state.count}</div>
         );
     }
 });

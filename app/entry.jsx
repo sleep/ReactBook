@@ -13,7 +13,6 @@ let book = new Book(entries, components);
 let routes = [
     book.getRoutes()
 ];
-console.log(routes);
 
 
 React.render((
