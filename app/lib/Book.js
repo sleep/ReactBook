@@ -60,6 +60,8 @@ function getRoute(path, entry, component){
         }, []);
 
   let src = entry["README.md"].src;
+  let requirePath = entry["README.md"].requirePath;
+
   let classes = Object.keys(component)
         .filter((key) => component[key][__file__] === "file")
         .map((key) => ({[keyTransform(key)] : component[key].src}))
@@ -67,7 +69,8 @@ function getRoute(path, entry, component){
           return Object.assign(sum, curr);
         },{});
 
-  let IlliterateComponent = generateComponent(src, classes);
+
+  let IlliterateComponent = generateComponent(src, classes, requirePath);
 
   return {
     path: path,

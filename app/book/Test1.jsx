@@ -6,7 +6,7 @@ import React from "react";
 export default React.createClass({
     getInitialState() {
         return {
-            count: 0
+            count: 100
         }
     },
     componentDidMount() {
