@@ -1,13 +1,16 @@
-//Generate routes
-import App from "./../App.jsx";
-import Landing from "./../Landing.jsx";
-
-//TODO: imeplement
 import Container from "./Container.jsx";
-import generateComponent from "./generateComponent.jsx";
+import IlliterateWrapper from "./IlliterateWrapper.jsx";
 
 const __file__ = Symbol.for("__type__");
+const __location__ = Symbol.for("__location__");
 const __components__ = Symbol("components");
+
+import entries from "dir!./entries.config";
+import components from "dir!./components.config";
+
+if (module.hot) {
+  module.hot.accept();
+}
 
 class Route {
   constructor(path, container, index) {
@@ -30,19 +33,6 @@ function keyTransform(str) {
   return str.slice(0, str.lastIndexOf("."));
 }
 
-// takes an entry and recursively returns a route
-
-function getRoute(path, entry) {
-  let src = entry["README.md"].src;
-  let classes = genClasses();
-
-  let Component = generateComponent(src, classes);
-
-  let route = new Route(path, Container, Component);
-  Object.keys(entry).forEach(key);
-}
-
-
 //Simultaneously walk entries and components
 // invariant: entry and component are at same location. Except
 // when component is null, in which case
@@ -60,7 +50,8 @@ function getRoute(path, entry, component){
         }, []);
 
   let src = entry["README.md"].src;
-  let requirePath = entry["README.md"].requirePath;
+
+  let location = entry["README.md"][__location__];
 
   let classes = Object.keys(component)
         .filter((key) => component[key][__file__] === "file")
@@ -70,24 +61,26 @@ function getRoute(path, entry, component){
         },{});
 
 
-  let IlliterateComponent = generateComponent(src, classes, requirePath);
-
   return {
     path: path,
     component: Container,
-    indexRoute: {component: IlliterateComponent},
+    indexRoute: {
+      component: IlliterateWrapper,
+      src: src,
+      location: location,
+      classes: classes
+    },
     childRoutes: childRoutes
   };
 }
 
 export default class Book {
-  constructor(entries, components) {
+  constructor() {
     this.routes = getRoute("/", entries, components);
   }
 
   // Returns routes
   getRoutes() {
-    console.log(this.routes);
     return this.routes;
   }
 };

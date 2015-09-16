@@ -1,7 +1,9 @@
-# Welcome to my book!!!!
-
-This is a counter:
+# This better work..
 
 <div id="Test1"></div>
 
-Watch it count!!
+hahahahaha!!!!
+hahahahaha!!!!
+hahahahaha!!!!
+hahahahaha!!!!
+hahahahaha!!!!
