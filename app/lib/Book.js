@@ -52,6 +52,7 @@ function getRoute(path, entry, component){
   let src = entry["README.md"].src;
 
   let location = entry["README.md"][__location__];
+  let __onHMRUpdate__ = entry["README.md"].__onHMRUpdate__;
 
   let classes = Object.keys(component)
         .filter((key) => component[key][__file__] === "file")
@@ -67,6 +68,7 @@ function getRoute(path, entry, component){
     indexRoute: {
       component: IlliterateWrapper,
       src: src,
+      __onHMRUpdate__: __onHMRUpdate__,
       location: location,
       classes: classes
     },
