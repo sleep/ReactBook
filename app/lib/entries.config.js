@@ -1,5 +1,5 @@
 export default {
   path: "../book",
-  filter: /\.md$/,
+  filter: /README\.md$/,
   dirFilter: /^(?!__).*/
 };

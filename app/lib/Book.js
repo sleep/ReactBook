@@ -1,4 +1,4 @@
-import Container from "./Container.jsx";
+import DefaultContainer from "./DefaultContainer.jsx";
 import IlliterateWrapper from "./IlliterateWrapper.jsx";
 
 const __file__ = Symbol.for("__type__");
@@ -7,26 +7,13 @@ const __components__ = Symbol("components");
 
 import entries from "dir!./entries.config";
 import components from "dir!./components.config";
+import containers from "dir!./containers.config";
 
+
+// Webpack HMR pass through
 if (module.hot) {
   module.hot.accept();
 }
-
-class Route {
-  constructor(path, container, index) {
-    this.path = path;
-    this.component = container;
-    this.indexRoute = {
-      component: index
-    };
-    this.childRoutes = [];
-  }
-
-  add(elem) {
-    this.childRoutes.push(elem);
-  }
-}
-
 
 //Takes "file.jsx" and returns file
 function keyTransform(str) {
@@ -37,22 +24,18 @@ function keyTransform(str) {
 // invariant: entry and component are at same location. Except
 // when component is null, in which case
 // component is turned into an empty object
-function getRoute(path, entry, component){
+function getRoute(path, entry, component, container){
   component = component || {};
+  container = container || {};
   //invariant: entry and component are at same location:
 
 
   let childRoutes = Object.keys(entry)
         .filter((key) => entry[key][__file__] === "directory")
-        .map((key) => (getRoute(key, entry[key], component[key])))
+        .map((key) => (getRoute(key, entry[key], component[key], container[key])))
         .reduce(function(sum, curr) {
           return sum.concat([curr]);
         }, []);
-
-  let src = entry["README.md"].src;
-
-  let location = entry["README.md"][__location__];
-  let __onHMRUpdate__ = entry["README.md"].__onHMRUpdate__;
 
   let classes = Object.keys(component)
         .filter((key) => component[key][__file__] === "file")
@@ -62,23 +45,33 @@ function getRoute(path, entry, component){
         },{});
 
 
+  // use the one in the directory, else default
+  let containerComponent = container["__container.jsx"]
+        ? container["__container.jsx"].src
+        : DefaultContainer;
+
+  let src = entry["README.md"].src;
+  let __onHMRUpdate__ = entry["README.md"].__onHMRUpdate__;
+  let location = entry["README.md"][__location__];
+
   return {
-    path: path,
-    component: Container,
+    path,
+    component: containerComponent,
     indexRoute: {
       component: IlliterateWrapper,
-      src: src,
-      __onHMRUpdate__: __onHMRUpdate__,
-      location: location,
-      classes: classes
+
+      classes,
+      src,
+      __onHMRUpdate__,
+      location
     },
-    childRoutes: childRoutes
+    childRoutes
   };
 }
 
 export default class Book {
   constructor() {
-    this.routes = getRoute("/", entries, components);
+    this.routes = getRoute("/", entries, components, containers);
   }
 
   // Returns routes

@@ -1,5 +1,5 @@
 export default {
   path: "../book",
-  filter: /^(?!__).*\.jsx$/,
+  filter: /__container\.jsx$/,
   dirFilter: /^(?!__).*/
-}
+};

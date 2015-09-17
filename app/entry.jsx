@@ -9,13 +9,13 @@ import Book from "./lib/Book.js";
 
 let book = new Book();
 let routes = [
-    book.getRoutes()
+  book.getRoutes()
 ];
 
 
 
 React.render((
-    <Router history={createHistory({queryKey: false})}
-            routes={routes}/>
+  <Router history={createHistory({queryKey: false})}
+          routes={routes}/>
 ), document.getElementById("app"));
 
