@@ -2,9 +2,9 @@ import React from "react";
 
 export default React.createClass({
   render() {
-    console.log(this.props.routes);
+    console.log(this.props.route.path);
     return (
-      <div className={"defaultContainer"}>
+      <div key={this.props.route.path} className={"defaultContainer"}>
         {this.props.children}
       </div>
     );

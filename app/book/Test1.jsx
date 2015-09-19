@@ -6,7 +6,7 @@ import React from "react";
 export default React.createClass({
     getInitialState() {
         return {
-            count: 100
+            count: 1000
         }
     },
     componentDidMount() {
@@ -19,7 +19,10 @@ export default React.createClass({
     },
     render() {
         return (
-            <div>{this.state.count}</div>
+            <div>
+              <h4>Counter</h4>
+              {this.state.count}
+            </div>
         );
     }
 });
