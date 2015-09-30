@@ -12,8 +12,6 @@ let routes = [
   book.getRoutes()
 ];
 
-
-
 React.render((
   <Router history={createHistory({queryKey: false})}
           routes={routes}/>

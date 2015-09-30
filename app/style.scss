@@ -1,5 +1,3 @@
-$navfg: rgb(54, 65,73);
-$navbg: rgb(250,250,250);
 
 $sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -15,46 +13,8 @@ body {
     font-size: 14px;
 }
 
-#root {
-    display: flex;
-
-    #rootNav, #rootContent {
-        padding: 2vh 2vw;
-    }
-
-    #rootNav {
-        flex: 0 1 auto;
-        color: $navfg;
-        background-color: $navbg;
-        border-right-color: rgba(0, 0, 0, 0.0666667);
-        border-right-style: solid;
-        border-right-width: 1px;
-        height: 100%;
-        max-width: 320px;
-        overflow-x: auto;
-        ul {
-            margin: 0;
-            padding: 2vh 2vw;
-            li {
-                padding: 1vh 0;
-            }
-            list-style-type: none;
-        }
-        a {
-            color: $navfg;
-            text-decoration: none;
-        }
-        .current, a:hover {
-            color: #008cff;
-        }
-    }
-    #rootContent{
-        flex: 1 0 auto;
-        overflow-y: auto;
-    }
-}
 
 .defaultContainer {
-    padding: 10vmin;
-    background: rgba(0, 0, 0, 0.05);
+    /* padding: 10vmin; */
+    /* background: rgba(0, 0, 0, 0.05); */
 }

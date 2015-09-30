@@ -1,5 +1,5 @@
 {
-  "name": "reactbook",
+  "name": "ReactBook",
   "private": true,
   "version": "0.0.0",
   "description": "example dynamic documents with React",
@@ -25,7 +25,7 @@
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
     "react-hot-loader": "^1.2.8",
-    "react-transform-catch-errors": "^0.1.1",
+    "react-transform-catch-errors": "^1.0.0",
     "react-transform-webpack-hmr": "^0.1.4",
     "redbox-react": "^1.0.3",
     "remarkable-loader": "^0.1.0",

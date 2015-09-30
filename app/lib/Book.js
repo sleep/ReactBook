@@ -1,4 +1,4 @@
-import DefaultContainer from "./DefaultContainer.jsx";
+import DefaultContainer from "../DefaultContainer.jsx";
 import IlliterateWrapper from "./IlliterateWrapper.jsx";
 
 const __file__ = Symbol.for("__type__");
@@ -46,8 +46,8 @@ function getRoute(path, entry, component, container){
 
 
   // use the one in the directory, else default
-  let containerComponent = container["__container.jsx"]
-        ? container["__container.jsx"].src
+  let containerComponent = container["__Container.jsx"]
+        ? container["__Container.jsx"].src
         : DefaultContainer;
 
   let src = entry["README.md"].src;

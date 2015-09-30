@@ -2,8 +2,8 @@ import React from "react";
 
 export default React.createClass({
   render() {
-    console.log(this.props.route.path);
     return (
+      // We insert key so React can differentiate different routes with DefaultContainer.
       <div key={this.props.route.path} className={"defaultContainer"}>
         {this.props.children}
       </div>

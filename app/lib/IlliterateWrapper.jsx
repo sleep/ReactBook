@@ -8,7 +8,6 @@ import entries from "dir!./entries.config";
      route: PropTypes.shape({
        src: PropTypes.string.isRequired, //currently don't use...
        __onHMRUpdate__: PropTypes.func.isRequired,
-       location: PropTypes.arrayOf(PropTypes.string).isRequired,
        classes: PropTypes.object.isRequired
      })
    },
@@ -18,8 +17,6 @@ import entries from "dir!./entries.config";
    componentDidMount() {
      if (module.hot) {
        this.props.route.__onHMRUpdate__((src) => {
-         console.log("updated");
-         console.log(src);
          this.setState({src: src});
        });
      }
