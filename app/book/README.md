@@ -10,8 +10,8 @@ This is **reactbook**, a *proof-of-concept/template* of a multi-page interactive
 The easiest way to explain is to take the following counter:
 
 <div id="Test1">
-<div style="display: hidden">
-(React component goes here...)
+<div class="fallback">
+<sub>(React component goes here...)</sub>
 </div>
 </div>
 
